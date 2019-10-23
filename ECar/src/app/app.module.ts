@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 
 import { MzCheckboxModule } from 'ngx-materialize';
 import { MzNavbarModule } from 'ngx-materialize'
+import { MzSidenavModule } from 'ngx-materialize'
 
 import { DashcarrosComponent } from './dashcarros/dashcarros.component'
 
@@ -28,7 +29,8 @@ import { DashcarrosComponent } from './dashcarros/dashcarros.component'
     MzButtonModule,
     MzInputModule,
     MzCheckboxModule,
-    MzNavbarModule
+    MzNavbarModule,
+    MzSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

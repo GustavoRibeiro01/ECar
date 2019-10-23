@@ -1,5 +1,9 @@
   
 <mz-navbar>
+    <mz-navbar-item-container [align]="'left'">
+        <mz-navbar-item><a id="btn-sidenav-demo" routerLink="/CarrinhoCompraRoute"><i class="material-icons">dehaze
+            </i></a></mz-navbar-item>
+    </mz-navbar-item-container>
     <mz-navbar-item-container [align]="'center'">
       <a routerLink="/ListaProdutosRoute" class="brand-logo">Cars's Shop</a>
     </mz-navbar-item-container>
@@ -8,3 +12,23 @@
         </i></a></mz-navbar-item>
     </mz-navbar-item-container>
   </mz-navbar>
+
+  <mz-sidenav
+  [id]="'sidenav-demo'"
+  [collapseButtonId]="'btn-sidenav-demo'">
+  <mz-sidenav-header>
+    Sidenav header
+  </mz-sidenav-header>
+  <mz-sidenav-subheader>Link Subheader</mz-sidenav-subheader>
+  <mz-sidenav-link>
+    <a href="#">First Link</a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link [active]="true">
+    <a href="#">Active Link</a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link>
+    <a href="#" class="waves-effect">Second Link With Waves</a>
+  </mz-sidenav-link>
+</mz-sidenav>
