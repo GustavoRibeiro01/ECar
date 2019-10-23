@@ -9,12 +9,17 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { MzCheckboxModule } from 'ngx-materialize'
+
+import { MzCheckboxModule } from 'ngx-materialize';
+import { MzNavbarModule } from 'ngx-materialize'
+
+import { DashcarrosComponent } from './dashcarros/dashcarros.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DashcarrosComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,8 @@ import { MzCheckboxModule } from 'ngx-materialize'
     BrowserAnimationsModule,
     MzButtonModule,
     MzInputModule,
-    MzCheckboxModule
+    MzCheckboxModule,
+    MzNavbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
