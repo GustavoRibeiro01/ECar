@@ -1,34 +1,44 @@
   
 <mz-navbar>
     <mz-navbar-item-container [align]="'left'">
-        <mz-navbar-item><a id="btn-sidenav-demo" routerLink="/CarrinhoCompraRoute"><i class="material-icons">dehaze
+        <mz-navbar-item><a id="btn-sidenav-demo" ><i class="material-icons">dehaze
             </i></a></mz-navbar-item>
     </mz-navbar-item-container>
     <mz-navbar-item-container [align]="'center'">
-      <a routerLink="/ListaProdutosRoute" class="brand-logo">Cars's Shop</a>
+      <a routerLink="/" class="brand-logo">Reserva Car's</a>
     </mz-navbar-item-container>
-    <mz-navbar-item-container [align]="'right'">
-      <mz-navbar-item><a routerLink="/CarrinhoCompraRoute"><i class="material-icons">local_grocery_store
-        </i></a></mz-navbar-item>
-    </mz-navbar-item-container>
-  </mz-navbar>
-
-  <mz-sidenav
+</mz-navbar>
+   
+<mz-sidenav
   [id]="'sidenav-demo'"
   [collapseButtonId]="'btn-sidenav-demo'">
   <mz-sidenav-header>
-    Sidenav header
+    <div _ngcontent-c1="" [ngStyle]="{'background' : 'url(../../assets/cars.jpg)'}" class="sidenav-header">
+               
+        <div _ngcontent-c5="" class="user-view ng-tns-c5-43">
+                
+            <div _ngcontent-c5="" class="red-text name">
+                <h4>
+                    Reserva Car's
+                </h4>
+            </div>
+            <div _ngcontent-c5="" class="white-text name">Gustavo Ribeiro</div>
+            <div _ngcontent-c5="" class="white-text email">gustavo.ribeiro@gmail.com</div>
+        </div>
+
+    </div>
   </mz-sidenav-header>
-  <mz-sidenav-subheader>Link Subheader</mz-sidenav-subheader>
+  
   <mz-sidenav-link>
-    <a href="#">First Link</a>
+        <a href="#">Minhas Reservas <i class="material-icons">dehaze</i></a>
   </mz-sidenav-link>
   <mz-sidenav-divider></mz-sidenav-divider>
-  <mz-sidenav-link [active]="true">
-    <a href="#">Active Link</a>
+  <mz-sidenav-link >
+        <a href="#">Carros Curtidos <i class="material-icons">dehaze</i> </a>
   </mz-sidenav-link>
   <mz-sidenav-divider></mz-sidenav-divider>
   <mz-sidenav-link>
-    <a href="#" class="waves-effect">Second Link With Waves</a>
+    <a href="" class="waves-effect">Sair <i class="material-icons">dehaze</i></a>
   </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
 </mz-sidenav>
