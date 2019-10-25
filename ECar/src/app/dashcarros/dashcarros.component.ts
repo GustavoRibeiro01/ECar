@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CarroService } from '../Service/carro.service';
 
 
 @Component({
@@ -8,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashcarrosComponent implements OnInit {
 
-  constructor() { }
+  ListaCarros
+  constructor(
+    private carroService: CarroService
+  ) { }
 
   ngOnInit() {
+
+    this.listarCarros()
+    
+
+  }
+
+  listarCarros = () =>{
+
+    this.carroService.getCarrosUsuario().then(response => {
+
+      this.ListaCarros = response
+      console.log(this.ListaCarros)
+
+    }).catch(erro =>{
+
+      console.log(erro)
+
+    })
   }
 
 }
