@@ -9,7 +9,7 @@ import { CarroService } from '../Service/carro.service';
 })
 export class DashcarrosComponent implements OnInit {
 
-  ListaCarros
+  ListaCarros: object[]
   constructor(
     private carroService: CarroService
   ) { }
@@ -33,6 +33,10 @@ export class DashcarrosComponent implements OnInit {
       console.log(erro)
 
     })
+  }
+
+  adicionar = (carro: any) =>{
+    carro.CarroFavorito = !carro.CarroFavorito
   }
 
 }
