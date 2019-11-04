@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MzButtonModule } from 'ngx-materialize'
+import { Usuario } from '../Classes/usuario';
 
 @Component({
   selector: 'app-login',
@@ -8,9 +9,14 @@ import { MzButtonModule } from 'ngx-materialize'
 })
 export class LoginComponent implements OnInit {
 
+  user = new Usuario('','','','')
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  VerificarAcesso = () =>{
+    console.log(this.user)
+  }
 }

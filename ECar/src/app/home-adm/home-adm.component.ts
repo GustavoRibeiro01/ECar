@@ -1,27 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { CarroService } from '../Service/carro.service';
 import { Router } from '@angular/router';
-
+import { CarroService } from '../Service/carro.service';
 
 @Component({
-  selector: 'app-dashcarros',
-  templateUrl: './dashcarros.component.html',
-  styleUrls: ['./dashcarros.component.css']
+  selector: 'app-home-adm',
+  templateUrl: './home-adm.component.html',
+  styleUrls: ['./home-adm.component.css']
 })
-export class DashcarrosComponent implements OnInit {
+export class HomeAdmComponent implements OnInit {
 
   ListaCarros: object[]
-  
+
   constructor(
     private carroService: CarroService,
     private route: Router
   ) { }
 
   ngOnInit() {
-
-    this.listarCarros()
-    
-
   }
 
   listarCarros = () =>{
@@ -38,12 +33,8 @@ export class DashcarrosComponent implements OnInit {
     })
   }
 
-  adicionar = (carro: any) =>{
-    carro.CarroFavorito = !carro.CarroFavorito
-  }
-
-  changeRoute = () =>{
-    this.route.navigateByUrl("/carro/detail")
+  removerCarro = (id) =>{
+    console.log(id)
   }
 
 }

@@ -1,0 +1,63 @@
+  
+<mz-navbar>
+        <mz-navbar-item-container [align]="'left'">
+            <mz-navbar-item><a id="btn-sidenav-demo" ><i class="material-icons">menu
+                </i></a></mz-navbar-item>
+        </mz-navbar-item-container>
+        <mz-navbar-item-container [align]="'center'">
+          <a routerLink="/home/adm" class="brand-logo">Reserva Car's</a>
+        </mz-navbar-item-container>
+    </mz-navbar>
+       
+    <mz-sidenav
+      [id]="'sidenav-demo'"
+      [collapseButtonId]="'btn-sidenav-demo'">
+      <mz-sidenav-header>
+        <div _ngcontent-c1="" [ngStyle]="{'background' : 'url(../../assets/cars.jpg)'}" class="sidenav-header">
+                   
+            <div _ngcontent-c5="" class="user-view ng-tns-c5-43">
+                    
+                <div _ngcontent-c5="" class="red-text name">
+                    <h4>
+                        Reserva Car's
+                    </h4>
+                </div>
+                <div _ngcontent-c5="" class="white-text name">Administrador</div>
+            </div>
+    
+        </div>
+      </mz-sidenav-header>
+      
+      <mz-sidenav-link>
+            <a href="#" class="waves-effect waves-cyan">Cadastro de Carros<i class="material-icons">dehaze</i></a>
+      </mz-sidenav-link>
+      <mz-sidenav-divider></mz-sidenav-divider>
+      <mz-sidenav-link >
+            <a href="#" class="waves-effect">Reservas
+              <i class="material-icons icon-red">favorite</i> </a>
+      </mz-sidenav-link>
+      <mz-sidenav-divider></mz-sidenav-divider>
+      <mz-sidenav-link>
+        <a href="" class="waves-effect">Sair <i class="material-icons">power_settings_new</i></a>
+      </mz-sidenav-link>
+      <mz-sidenav-divider></mz-sidenav-divider>
+    </mz-sidenav>
+    
+    <div class="row">
+        <div class="col s10 m4 l3 push-s1" *ngFor="let carro of ListaCarros">
+          <div class="card gray-background">
+            <div class="card-image">
+              <img src= "../../assets/cars.jpg"  height="200" (click)="changeRoute()">
+              <button class="btn-floating halfway-fab waves-effect waves-light white" (click)="removerCarro(carro.Id)"><i *ngIf="carro.CarroFavorito" class="material-icons icon-red">favorite</i><i class="material-icons icon-red">favorite_border</i></button>
+            </div>
+            <div class="card-content" (click)="changeRoute()">
+              <span class="card-title">{{carro.Nome}}</span>
+              <span class="card-subtitle" style="font-size:20px; color:green">R$ {{carro.Preco.toFixed(2)}}</span>
+              <br>
+              <br>
+              <p>{{carro.Tipo}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    

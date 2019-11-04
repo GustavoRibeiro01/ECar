@@ -1,0 +1,55 @@
+<body class="total center-align">
+        <div  class="row">
+          <div class="col s10 m6 l4 push-s1 push-m3 push-l4">
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="card">
+              <br>
+              <div class="center-align">
+                <h3 style="color:rgb(255, 0, 0)">
+                  Reserva Car's
+                </h3>
+              </div>
+              <div class="card-content">
+                <br>
+                <div class="input-field">
+                    <i class="material-icons prefix center">account_circle</i>
+                    <input [(ngModel)]="user.Nome" placeholder="Entre com seu nome"  id="nome" type="text">
+                    <label for="nome" class="active">Nome</label>
+                </div>
+
+                <div class="input-field">
+                    <i class="material-icons prefix center">account_circle</i>
+                    <input [(ngModel)]="user.CPF" placeholder="Entre com seu CPF"  id="cpf" type="text">
+                    <label for="cpf" class="active">CPF</label>
+                </div>
+
+                <div class="input-field">
+                    <i class="material-icons prefix center">mail_outline</i>
+                    <input [(ngModel)]="user.Email" placeholder="Entre com seu email"  id="email" type="text">
+                    <label for="email" class="active">Email</label>
+                </div>
+      
+                <div class="input-field">
+                    <i class="material-icons prefix">lock_outline</i>
+                    <input [(ngModel)]="user.Senha" placeholder="Entre com sua senha" id="senha" type="password">
+                    <label for="senha" class="active">Senha</label>
+                </div>
+              </div>
+              <div>
+                <br>
+                <div class="center-align">
+                  <button class="waves-effect waves-light btn red" (click)="CadastrarUsuario()">Cadastrar</button>
+                  <br>
+                  <br>
+                  <a style="color:rgb(255, 0, 0)" routerLink="/autenticacao/login">Cancelar</a>
+                  <br>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</body>

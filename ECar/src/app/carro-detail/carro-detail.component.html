@@ -1,1 +1,86 @@
-<p>carro-detail works!</p>
+<mz-navbar>
+    <mz-navbar-item-container [align]="'left'">
+        <mz-navbar-item><a id="btn-sidenav-demo" ><i class="material-icons">menu
+            </i></a></mz-navbar-item>
+    </mz-navbar-item-container>
+    <mz-navbar-item-container [align]="'center'">
+      <a routerLink="/home" class="brand-logo">Reserva Car's</a>
+    </mz-navbar-item-container>
+</mz-navbar>
+   
+<mz-sidenav
+  [id]="'sidenav-demo'"
+  [collapseButtonId]="'btn-sidenav-demo'">
+  <mz-sidenav-header>
+    <div _ngcontent-c1="" [ngStyle]="{'background' : 'url(../../assets/cars.jpg)'}" class="sidenav-header">
+               
+        <div _ngcontent-c5="" class="user-view ng-tns-c5-43">
+                
+            <div _ngcontent-c5="" class="red-text name">
+                <h4>
+                    Reserva Car's
+                </h4>
+            </div>
+            <div _ngcontent-c5="" class="white-text name">Gustavo Ribeiro</div>
+            <div _ngcontent-c5="" class="white-text email">gustavo.ribeiro@gmail.com</div>
+        </div>
+
+    </div>
+  </mz-sidenav-header>
+  
+  <mz-sidenav-link>
+        <a href="#" class="waves-effect">Minhas Reservas <i class="material-icons">dehaze</i></a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link >
+        <a href="#" class="waves-effect">Carros Favoritos 
+          <i class="material-icons icon-red">favorite</i> </a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link>
+    <a href="" class="waves-effect">Sair <i class="material-icons">power_settings_new</i></a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+</mz-sidenav>
+
+<br>
+
+<div class="row">
+    <div class="col s12 m10 l10 push-m1 push-l1">
+       
+        <div class="card">
+            
+
+            <div class="row">
+                <div class="col s12 m8 l8">
+
+                    <div class="margin-carousel">
+                        <owl-carousel  [options]="carouselOptions" [items]="images" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                            <div class="item" *ngFor="let image of images;let i= index">
+                                <img class="slide-image" src="{{image.image}}" >
+                            </div>
+                        </owl-carousel>
+                    </div>
+                </div >
+
+                <div class="col s12 m4 l4">
+                    <div>
+                        <h2>Gol G5</h2>
+                        <h5 style="color:green">R$ 22000,00</h5>
+                        <p>Vidro elétrico, freios abs, trava elétrica, direção hidraulica, sistema ABS.</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m4 l4 push-s3 push-l1">
+                    <div class="button-config">
+                        <a class="waves-effect waves-light btn">Reservar Carro</a>
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+    </div>
+
+</div>
+    
