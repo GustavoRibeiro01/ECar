@@ -17,6 +17,7 @@ export class HomeAdmComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.listarCarros()
   }
 
   listarCarros = () =>{

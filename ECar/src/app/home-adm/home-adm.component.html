@@ -23,6 +23,7 @@
                     </h4>
                 </div>
                 <div _ngcontent-c5="" class="white-text name">Administrador</div>
+                <div _ngcontent-c5="" class="white-text name"></div>
             </div>
     
         </div>
@@ -48,7 +49,7 @@
           <div class="card gray-background">
             <div class="card-image">
               <img src= "../../assets/cars.jpg"  height="200" (click)="changeRoute()">
-              <button class="btn-floating halfway-fab waves-effect waves-light white" (click)="removerCarro(carro.Id)"><i *ngIf="carro.CarroFavorito" class="material-icons icon-red">favorite</i><i class="material-icons icon-red">favorite_border</i></button>
+              <button class="btn-floating halfway-fab waves-effect waves-light white" (click)="removerCarro(carro.Id)"><i class="material-icons icon-red">delete</i></button>
             </div>
             <div class="card-content" (click)="changeRoute()">
               <span class="card-title">{{carro.Nome}}</span>

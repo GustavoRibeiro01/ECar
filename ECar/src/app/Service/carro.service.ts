@@ -33,4 +33,14 @@ export class CarroService {
               .catch((error) => reject(error));
       });
   }
+
+  carroFavorito = (obj: any) =>{
+
+    return new Promise((resolve, reject) => {
+
+      this.axios.post(`${this.pathAPI}Carro/CarroFavorito`, obj)
+          .then((response) => resolve(response.data))
+          .catch((error) => reject(error));
+  });
+  }
 }

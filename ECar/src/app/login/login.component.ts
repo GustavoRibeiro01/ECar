@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MzButtonModule } from 'ngx-materialize'
 import { Usuario } from '../Classes/usuario';
+import { AutenticacaoService } from '../Service/autenticacao.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,12 +13,28 @@ export class LoginComponent implements OnInit {
 
   user = new Usuario('','','','')
 
-  constructor() { }
+  constructor(
+    private _authService: AutenticacaoService,
+    private route: Router
+  ) { }
 
   ngOnInit() {
   }
 
   VerificarAcesso = () =>{
-    console.log(this.user)
+    this._authService.login(this.user)
+      .then(
+        response =>{
+
+          if(response != null)
+          {
+            
+            this.route.navigateByUrl("/home")
+          }
+          else{
+            alert("Login e senha incompativeis")
+          }
+        }
+      )
   }
 }
