@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { CarroService } from '../Service/carro.service';
+import { Router } from '@angular/router';
+import { AutenticacaoService } from '../Service/autenticacao.service';
+import { Usuario } from '../Classes/usuario';
 
 @Component({
   selector: 'app-carro-detail',
@@ -7,9 +11,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarroDetailComponent implements OnInit {
 
-  constructor() { }
+  currentUser: Usuario
+  carro: any
+
+  constructor(
+    private _carroService: CarroService,
+    private _authService: AutenticacaoService,
+    private route: Router
+  ) { 
+    this.currentUser = this._authService.getCurrentUser()
+  }
 
   ngOnInit() {
+  }
+
+  reservarCarro = () =>{
+
+    let obj = {
+      IdCarro: this.carro.Id,
+      IdUsuario: this.currentUser.Id
+    }
+
+    this._carroService.reservarCarro(obj)
+      .then(
+        response =>{
+          if(response > 0)
+          {
+            console.log("Carro Reservado")
+          }
+          else
+          {
+            console.log("Não foi possivel realizar a reserva!")
+          }
+        }
+      )
   }
 
   title = 'OwlCarousel2 in Angular7 with Custom Navigation Arrows';

@@ -21,8 +21,8 @@
                     Reserva Car's
                 </h4>
             </div>
-            <div _ngcontent-c5="" class="white-text name">Gustavo Ribeiro</div>
-            <div _ngcontent-c5="" class="white-text email">gustavo.ribeiro@gmail.com</div>
+            <div _ngcontent-c5="" class="white-text name">{{currentUser.Nome}}</div>
+            <div _ngcontent-c5="" class="white-text email">{{currentUser.Email}}</div>
         </div>
 
     </div>
@@ -73,7 +73,7 @@
 
                 <div class="col s12 m4 l4 push-s3 push-l1">
                     <div class="button-config">
-                        <a class="waves-effect waves-light btn">Reservar Carro</a>
+                        <a (click)="reservarCarro()" class="waves-effect waves-light btn">Reservar Carro</a>
                     </div>
                 </div>
 

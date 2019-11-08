@@ -28,12 +28,25 @@ export class LoginComponent implements OnInit {
 
           if(response != null)
           {
+            if(response.Administrador)
+            {
+              this.route.navigateByUrl("/home/adm")
+            }
+            else
+            {
+              this.route.navigateByUrl("/home")
+            }
             
-            this.route.navigateByUrl("/home")
           }
           else{
             alert("Login e senha incompativeis")
           }
+        }
+      )
+      .catch(
+        erro =>{
+          alert("Não foi possiel comunicar com API")
+          console.log(erro)
         }
       )
   }

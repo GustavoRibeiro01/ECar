@@ -5,6 +5,7 @@ export class Usuario {
     public CPF: string
     public Email: string
     public Senha: string
+    public Administrador: boolean
 
     constructor(nome, cpf, email, senha)
     {
@@ -12,5 +13,6 @@ export class Usuario {
         this.CPF = cpf
         this.Email = email
         this.Senha = senha
+        this.Administrador = false
     }
 }

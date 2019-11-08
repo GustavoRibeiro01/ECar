@@ -31,7 +31,7 @@ export class DashcarrosComponent implements OnInit {
 
   listarCarros = () =>{
 
-    this.carroService.getCarrosUsuario().then(response => {
+    this.carroService.getCarrosUsuario(this.currentUser.Id).then(response => {
 
       this.ListaCarros = response
       
