@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
           if(response != null)
           {
-            if(response.Administrador)
+            if((response as Usuario).Administrador)
             {
               this.route.navigateByUrl("/home/adm")
             }
