@@ -116,4 +116,14 @@ export class CarroDetailComponent implements OnInit {
       image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/10.jpg"
     }
   ]
+
+  changeRouteFavoritos = () =>{
+    this.route.navigateByUrl("menu/carrosFavoritos")
+  }
+  
+  logout = () =>{
+    this._authService.logout()
+    this.route.navigateByUrl("/autenticacao/login")
+  }
+  
 }

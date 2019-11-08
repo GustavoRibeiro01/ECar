@@ -20,7 +20,8 @@ import { MzSidenavModule } from 'ngx-materialize'
 import { DashcarrosComponent } from './dashcarros/dashcarros.component';
 import { CarroDetailComponent } from './carro-detail/carro-detail.component';
 import { CadastroUsuarioComponent } from './Cadastros/cadastro-usuario/cadastro-usuario.component';
-import { HomeAdmComponent } from './home-adm/home-adm.component'
+import { HomeAdmComponent } from './home-adm/home-adm.component';
+import { CarrosFavoritosComponent } from './carros-favoritos/carros-favoritos.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HomeAdmComponent } from './home-adm/home-adm.component'
     DashcarrosComponent,
     CarroDetailComponent,
     CadastroUsuarioComponent,
-    HomeAdmComponent
+    HomeAdmComponent,
+    CarrosFavoritosComponent
   ],
   imports: [
     BrowserModule,

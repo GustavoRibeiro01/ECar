@@ -6,6 +6,7 @@ import { DashcarrosComponent } from './dashcarros/dashcarros.component'
 import { CarroDetailComponent } from './carro-detail/carro-detail.component'
 import { CadastroUsuarioComponent } from './Cadastros/cadastro-usuario/cadastro-usuario.component'
 import { HomeAdmComponent } from './home-adm/home-adm.component'
+import { CarrosFavoritosComponent } from './carros-favoritos/carros-favoritos.component'
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'autenticacao/cadastroUsuario', component: CadastroUsuarioComponent },
   { path: 'home', component: DashcarrosComponent },
   { path: 'home/carroDetail', component: CarroDetailComponent },
-  { path: 'home/adm', component: HomeAdmComponent }
+  { path: 'home/adm', component: HomeAdmComponent },
+  { path: 'menu/carrosFavoritos', component: CarrosFavoritosComponent }
   
 
 ];

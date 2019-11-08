@@ -53,6 +53,10 @@ export class DashcarrosComponent implements OnInit {
     this.route.navigateByUrl("home/carroDetail")
   }
 
+  changeRouteFavoritos = () =>{
+    this.route.navigateByUrl("menu/carrosFavoritos")
+  }
+
   carroFavorito = (idCarro, value) =>{
     let idUsuario = this._authService.getCurrentUser().Id
     this.carroService.carroFavorito({IdCarro: idCarro, IdUsuario: idUsuario, Value: value})
