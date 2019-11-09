@@ -24,7 +24,7 @@ export class CarrosFavoritosComponent implements OnInit {
 
   ngOnInit() {
     console.log(this._carroService.getCurrentCars())
-    this.CarrosFavoritos = this._carroService.getCurrentCars().filter(f => f.CarroFavorito)
+    this.CarrosFavoritos = this._carroService.getCurrentCars().filter(f => f.CarroFavorito && f.CarroReservado == 0)
   }
 
   adicionar = (carro: any) =>{

@@ -4,6 +4,7 @@ export class Carro {
     public Tipo: string
     public Preco: number
     public CarroFavorito: boolean
+    public CarroReservado: number
 
     constructor(nome: string, tipo: string, preco: number)
     { 

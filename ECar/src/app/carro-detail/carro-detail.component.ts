@@ -3,6 +3,7 @@ import { CarroService } from '../Service/carro.service';
 import { Router } from '@angular/router';
 import { AutenticacaoService } from '../Service/autenticacao.service';
 import { Usuario } from '../Classes/usuario';
+import { Carro } from '../Classes/carro';
 
 @Component({
   selector: 'app-carro-detail',
@@ -12,6 +13,7 @@ import { Usuario } from '../Classes/usuario';
 export class CarroDetailComponent implements OnInit {
 
   currentUser: Usuario
+  currentCar: Carro
   carro: any
 
   constructor(
@@ -20,6 +22,7 @@ export class CarroDetailComponent implements OnInit {
     private route: Router
   ) { 
     this.currentUser = this._authService.getCurrentUser()
+    this.currentCar = this._carroService.getCurrentCar()
   }
 
   ngOnInit() {
@@ -28,7 +31,7 @@ export class CarroDetailComponent implements OnInit {
   reservarCarro = () =>{
 
     let obj = {
-      IdCarro: this.carro.Id,
+      IdCarro: this.currentCar.Id,
       IdUsuario: this.currentUser.Id
     }
 
@@ -37,11 +40,13 @@ export class CarroDetailComponent implements OnInit {
         response =>{
           if(response > 0)
           {
-            console.log("Carro Reservado")
+            this.currentCar.CarroReservado = this.currentUser.Id
+            this.route.navigateByUrl("/home")
           }
           else
           {
-            console.log("Não foi possivel realizar a reserva!")
+            alert("Não foi possivel realizar a reserva!")
+            this.route.navigateByUrl("/home")
           }
         }
       )
@@ -125,5 +130,5 @@ export class CarroDetailComponent implements OnInit {
     this._authService.logout()
     this.route.navigateByUrl("/autenticacao/login")
   }
-  
+
 }

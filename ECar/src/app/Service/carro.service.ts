@@ -11,6 +11,7 @@ import { Carro } from '../Classes/carro';
 export class CarroService {
 
   public Carros: Carro[]
+  public CurrentCar: Carro = null
   private pathAPI: string = "http://localhost:58224/api/"
   private axios = require('axios');
 
@@ -33,8 +34,12 @@ export class CarroService {
     return this.Carros
   }
 
-  updateCurrentCars = (listCars: any[]) =>{
-    this.Carros = listCars
+  getCurrentCar = (): Carro =>{
+    return this.CurrentCar
+  }
+
+  setCurrentCar = (value: Carro) =>{
+    this.CurrentCar = value
   }
 
   carroFavorito = (obj: any) =>{
@@ -49,6 +54,7 @@ export class CarroService {
 
   reservarCarro = (obj: any) =>{
     
+    console.log(obj)
     return new Promise((resolve, reject) => {
 
       this.axios.post(`${this.pathAPI}Carro/ReservarCarro`, obj)

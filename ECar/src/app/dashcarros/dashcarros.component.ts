@@ -3,6 +3,7 @@ import { CarroService } from '../Service/carro.service';
 import { Router } from '@angular/router';
 import { AutenticacaoService } from '../Service/autenticacao.service';
 import { Usuario } from '../Classes/usuario';
+import { Carro } from '../Classes/carro';
 
 
 @Component({
@@ -21,11 +22,12 @@ export class DashcarrosComponent implements OnInit {
     private route: Router
   ) {
     this.currentUser = this._authService.getCurrentUser()
+    
    }
 
   ngOnInit() {
-
-    this.listarCarros()
+    
+      this.listarCarros()
     
   }
 
@@ -33,9 +35,7 @@ export class DashcarrosComponent implements OnInit {
 
     this.carroService.getCarrosUsuario(this.currentUser.Id).then(response => {
 
-      this.ListaCarros = response
-      
-      console.log(this.currentUser)
+      this.ListaCarros = (response as Carro[]).filter(car => car.CarroReservado == 0)
 
     }).catch(erro =>{
 
@@ -49,7 +49,8 @@ export class DashcarrosComponent implements OnInit {
     this.carroFavorito(carro.Id, carro.CarroFavorito)
   }
 
-  changeRoute = () =>{
+  changeRoute = (car: Carro) =>{
+    this.carroService.setCurrentCar(car)
     this.route.navigateByUrl("home/carroDetail")
   }
 
