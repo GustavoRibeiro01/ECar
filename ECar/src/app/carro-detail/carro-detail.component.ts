@@ -22,10 +22,35 @@ export class CarroDetailComponent implements OnInit {
     private route: Router
   ) { 
     this.currentUser = this._authService.getCurrentUser()
+
+    if(this.currentUser == null)
+    {
+      this.currentUser = new Usuario('','','','')
+    }
+
     this.currentCar = this._carroService.getCurrentCar()
+
+    if(this.currentCar == null)
+    {
+      this.currentCar = new Carro('','', 0)
+    }
+
   }
 
   ngOnInit() {
+
+    if(this.currentUser.Id == undefined) {
+
+      alert("Usuario deslogado! Por favor faça seu login")
+      this.route.navigateByUrl("autenticacao/login")
+
+    }
+
+    if(this.currentCar.Id == undefined) {
+
+      this.route.navigateByUrl("home")
+
+    }
   }
 
   reservarCarro = () =>{

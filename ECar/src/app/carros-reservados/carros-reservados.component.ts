@@ -1,34 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AutenticacaoService } from '../Service/autenticacao.service';
 import { CarroService } from '../Service/carro.service';
+import { AutenticacaoService } from '../Service/autenticacao.service';
+import { Router } from '@angular/router';
 import { Usuario } from '../Classes/usuario';
+import { Carro } from '../Classes/carro';
 
 @Component({
-  selector: 'app-carros-favoritos',
-  templateUrl: './carros-favoritos.component.html',
-  styleUrls: ['./carros-favoritos.component.css']
+  selector: 'app-carros-reservados',
+  templateUrl: './carros-reservados.component.html',
+  styleUrls: ['./carros-reservados.component.css']
 })
-export class CarrosFavoritosComponent implements OnInit {
+export class CarrosReservadosComponent implements OnInit {
 
   currentUser: Usuario
-  CarrosFavoritos: any[]
+  carrosReservados: Carro[]
 
   constructor(
     private _carroService: CarroService,
     private _authService: AutenticacaoService,
     private route: Router
-  ) { 
+  ) {
     this.currentUser = this._authService.getCurrentUser()
 
     if(this.currentUser == null)
     {
       this.currentUser = new Usuario('','','','')
     }
-  }
+    
+   }
 
   ngOnInit() {
-    
+
     if(this.currentUser.Id == undefined) {
 
       alert("Usuario deslogado! Por favor faça seu login")
@@ -37,31 +39,22 @@ export class CarrosFavoritosComponent implements OnInit {
     }
     else{
 
-      this.CarrosFavoritos = this._carroService.getCurrentCars()
+      this.carrosReservados = this._carroService.getCurrentCars()
 
-      if(this.CarrosFavoritos != null)
+      if(this.carrosReservados != null)
       {
-        this.CarrosFavoritos = this._carroService.getCurrentCars().filter(f => f.CarroFavorito && f.CarroReservado == 0)
+        this.carrosReservados = this._carroService.getCurrentCars().filter(car => car.CarroReservado == this.currentUser.Id)
       }
-      
+
     }
    
   }
 
-  adicionar = (carro: any) =>{
-    carro.CarroFavorito = !carro.CarroFavorito
-    this.carroFavorito(carro.Id, carro.CarroFavorito)
-  }
-
-  carroFavorito = (idCarro, value) =>{
-    let idUsuario = this._authService.getCurrentUser().Id
-    this._carroService.carroFavorito({IdCarro: idCarro, IdUsuario: idUsuario, Value: value})
-  }
 
   changeRouteReservados = () =>{
     this.route.navigateByUrl("menu/carrosReservados")
   }
-
+  
   changeRouteFavoritos = () =>{
     this.route.navigateByUrl("menu/carrosFavoritos")
   }

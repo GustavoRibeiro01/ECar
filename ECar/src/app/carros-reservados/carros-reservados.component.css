@@ -1,0 +1,19 @@
+.black-background{
+    background-color: black;
+}
+
+.gray-background{
+    background-color: rgb(240, 240, 240);
+}
+
+.icon-red {
+    color: red;
+}
+
+.brand-logo {
+    position: absolute;
+    color: #fff;
+    display: contents;
+    font-size: 2.1rem;
+    padding: 0;
+}

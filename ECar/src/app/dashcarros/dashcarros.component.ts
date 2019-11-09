@@ -22,12 +22,26 @@ export class DashcarrosComponent implements OnInit {
     private route: Router
   ) {
     this.currentUser = this._authService.getCurrentUser()
+
+    if(this.currentUser == null)
+    {
+      this.currentUser = new Usuario('','','','')
+    }
     
    }
 
   ngOnInit() {
     
+    if(this.currentUser.Id == undefined) {
+
+      alert("Usuario deslogado! Por favor faça seu login")
+      this.route.navigateByUrl("autenticacao/login")
+
+    }
+    else
+    {
       this.listarCarros()
+    }
     
   }
 
@@ -52,6 +66,10 @@ export class DashcarrosComponent implements OnInit {
   changeRoute = (car: Carro) =>{
     this.carroService.setCurrentCar(car)
     this.route.navigateByUrl("home/carroDetail")
+  }
+
+  changeRouteReservados = () =>{
+    this.route.navigateByUrl("menu/carrosReservados")
   }
 
   changeRouteFavoritos = () =>{
