@@ -8,6 +8,7 @@ import { CadastroUsuarioComponent } from './Cadastros/cadastro-usuario/cadastro-
 import { HomeAdmComponent } from './home-adm/home-adm.component'
 import { CarrosFavoritosComponent } from './carros-favoritos/carros-favoritos.component'
 import { CarrosReservadosComponent } from './carros-reservados/carros-reservados.component'
+import { CadastroProdutoComponent } from './Cadastros/cadastro-produto/cadastro-produto.component'
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'home', component: DashcarrosComponent },
   { path: 'home/carroDetail', component: CarroDetailComponent },
   { path: 'home/adm', component: HomeAdmComponent },
+  { path: 'home/adm/cadastroCarro', component: CadastroProdutoComponent },
   { path: 'menu/carrosFavoritos', component: CarrosFavoritosComponent },
   { path: 'menu/carrosReservados', component: CarrosReservadosComponent }
 

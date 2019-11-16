@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AutenticacaoService } from '../Service/autenticacao.service';
 import { Usuario } from '../Classes/usuario';
 import { Carro } from '../Classes/carro';
+import { UploadImageService } from '../Service/upload-image.service';
 
 @Component({
   selector: 'app-carro-detail',
@@ -15,11 +16,15 @@ export class CarroDetailComponent implements OnInit {
   currentUser: Usuario
   currentCar: Carro
   carro: any
+  images1: any[] = []
+  pathImageApi: string
 
   constructor(
     private _carroService: CarroService,
     private _authService: AutenticacaoService,
+    private _imageService: UploadImageService,
     private route: Router
+
   ) { 
     this.currentUser = this._authService.getCurrentUser()
 
@@ -35,22 +40,24 @@ export class CarroDetailComponent implements OnInit {
       this.currentCar = new Carro('','', 0)
     }
 
+    this.pathImageApi = this._imageService.getPathComplement()
+    this.carregarImages()
+
   }
 
   ngOnInit() {
 
     if(this.currentUser.Id == undefined) {
-
       alert("Usuario deslogado! Por favor faça seu login")
       this.route.navigateByUrl("autenticacao/login")
-
     }
 
     if(this.currentCar.Id == undefined) {
-
       this.route.navigateByUrl("home")
-
     }
+
+    
+
   }
 
   reservarCarro = () =>{
@@ -108,42 +115,43 @@ export class CarroDetailComponent implements OnInit {
     }
   }
  
+  carregarImages = () =>{
+
+    for (let index = 0; index < this.currentCar.ListaImages.length; index++) {
+      
+      let img: any = 
+      {
+        text: this.currentCar.ListaImages[index].ImageCaption,
+        image: `${this.pathImageApi}${this.currentCar.ListaImages[index].ImageName}`
+      }
+
+      console.log(img)
+      this.images1.push(img)
+      
+    }
+  }
+
   images = [
+    
     {
       text: "Everfresh Flowers",
-      image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/1.jpg"
+      image: "http://localhost:58224/Image/civic1.jpg"
     },
     {
       text: "Festive Deer",
-      image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/2.jpg"
+      image: "http://localhost:58224/Image/civic2.jpg"
     },
     {
       text: "Morning Greens",
-      image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/3.jpg"
+      image: "http://localhost:58224/Image/civic3.jpg"
     },
     {
       text: "Bunch of Love",
-      image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/4.jpg"
+      image: "http://localhost:58224/Image/civic4.jpg"
     },
     {
       text: "Blue Clear",
-      image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/5.jpg"
-    },
-    {
-      text: "Evening Clouds",
-      image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/7.jpg"
-    },
-    {
-      text: "Fontains in Shadows",
-      image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/8.jpg"
-    },
-    {
-      text: "Kites in the Sky",
-      image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/9.jpg"
-    },
-    {
-      text: "Sun Streak",
-      image: "https://freakyjolly.com/demo/jquery/PreloadJS/images/10.jpg"
+      image: "http://localhost:58224/Image/civic5.jpg"
     }
   ]
 

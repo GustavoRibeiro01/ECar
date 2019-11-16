@@ -48,15 +48,15 @@
 <div class="row">
     <div class="col s12 m10 l10 push-m1 push-l1">
        
-        <div class="card">
+        <div class="card" class="gray-background">
             
 
             <div class="row">
                 <div class="col s12 m8 l8">
 
                     <div class="margin-carousel">
-                        <owl-carousel  [options]="carouselOptions" [items]="images" [carouselClasses]="['owl-theme', 'row', 'sliding']">
-                            <div class="item" *ngFor="let image of images;let i= index">
+                        <owl-carousel  [options]="carouselOptions" [items]="images1" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                            <div class="item" *ngFor="let image of images1;let i= index">
                                 <img class="slide-image" src="{{image.image}}" >
                             </div>
                         </owl-carousel>

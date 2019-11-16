@@ -1,10 +1,10 @@
   
-<mz-navbar>
-    <mz-navbar-item-container [align]="'left'">
-        <mz-navbar-item><a id="btn-sidenav-demo" ><i class="material-icons">menu
+<mz-navbar class="backgroundBlack">
+    <mz-navbar-item-container [align]="'left'" class="backgroundBlack">
+        <mz-navbar-item class="backgroundBlack"><a id="btn-sidenav-demo" ><i class="material-icons">menu
             </i></a></mz-navbar-item>
     </mz-navbar-item-container>
-    <mz-navbar-item-container [align]="'center'">
+    <mz-navbar-item-container class="backgroundBlack" [align]="'center'">
       <a routerLink="/home" class="brand-logo">Reserva Car's</a>
     </mz-navbar-item-container>
 </mz-navbar>
@@ -48,10 +48,10 @@
     <div class="col s10 m4 l3 push-s1" *ngFor="let carro of ListaCarros">
       <div class="card gray-background">
         <div class="card-image">
-          <img src= "../../assets/cars.jpg"  height="200" (click)="changeRoute(carro)">
+          <img src= "{{complementPath}}{{carro.Image}}"  height="265" (click)="changeRoute(carro)">
           <button class="btn-floating halfway-fab waves-effect waves-light white" (click)="adicionar(carro)"><i *ngIf="carro.CarroFavorito" class="material-icons icon-red">favorite</i><i class="material-icons icon-red">favorite_border</i></button>
         </div>
-        <div class="card-content" (click)="changeRoute()">
+        <div class="card-content" (click)="changeRoute(carro)">
           <span class="card-title">{{carro.Nome}}</span>
           <span class="card-subtitle" style="font-size:20px; color:green">R$ {{carro.Preco.toFixed(2)}}</span>
           <br>

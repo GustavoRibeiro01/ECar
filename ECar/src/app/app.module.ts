@@ -22,7 +22,8 @@ import { CarroDetailComponent } from './carro-detail/carro-detail.component';
 import { CadastroUsuarioComponent } from './Cadastros/cadastro-usuario/cadastro-usuario.component';
 import { HomeAdmComponent } from './home-adm/home-adm.component';
 import { CarrosFavoritosComponent } from './carros-favoritos/carros-favoritos.component';
-import { CarrosReservadosComponent } from './carros-reservados/carros-reservados.component'
+import { CarrosReservadosComponent } from './carros-reservados/carros-reservados.component';
+import { CadastroProdutoComponent } from './Cadastros/cadastro-produto/cadastro-produto.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CarrosReservadosComponent } from './carros-reservados/carros-reservados
     CadastroUsuarioComponent,
     HomeAdmComponent,
     CarrosFavoritosComponent,
-    CarrosReservadosComponent
+    CarrosReservadosComponent,
+    CadastroProdutoComponent
   ],
   imports: [
     BrowserModule,

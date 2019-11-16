@@ -1,3 +1,5 @@
+import { ImageCarro } from './image-carro'
+
 export class Carro {
     public Id: number
     public Nome: string
@@ -5,6 +7,9 @@ export class Carro {
     public Preco: number
     public CarroFavorito: boolean
     public CarroReservado: number
+    public Image: string
+
+    public ListaImages: ImageCarro[]
 
     constructor(nome: string, tipo: string, preco: number)
     { 

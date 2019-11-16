@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AutenticacaoService } from '../Service/autenticacao.service';
 import { Usuario } from '../Classes/usuario';
 import { Carro } from '../Classes/carro';
+import { UploadImageService } from '../Service/upload-image.service';
 
 
 @Component({
@@ -15,13 +16,16 @@ export class DashcarrosComponent implements OnInit {
 
   ListaCarros: object[]
   currentUser: Usuario
+  complementPath
   
   constructor(
     private carroService: CarroService,
     private _authService: AutenticacaoService,
+    private _ImageService: UploadImageService,
     private route: Router
   ) {
     this.currentUser = this._authService.getCurrentUser()
+    
 
     if(this.currentUser == null)
     {
@@ -40,6 +44,7 @@ export class DashcarrosComponent implements OnInit {
     }
     else
     {
+      this.complementPath = this._ImageService.getPathComplement()
       this.listarCarros()
     }
     
@@ -50,12 +55,17 @@ export class DashcarrosComponent implements OnInit {
     this.carroService.getCarrosUsuario(this.currentUser.Id).then(response => {
 
       this.ListaCarros = (response as Carro[]).filter(car => car.CarroReservado == 0)
+      console.log(response as Carro[])
 
     }).catch(erro =>{
 
       console.log(erro)
 
     })
+  }
+
+  pathImage = (carro: Carro) =>{
+    return `${this.complementPath}${carro.Image}`
   }
 
   adicionar = (carro: any) =>{

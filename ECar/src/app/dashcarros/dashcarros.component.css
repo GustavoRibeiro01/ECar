@@ -17,3 +17,11 @@
     font-size: 2.1rem;
     padding: 0;
 }
+
+.backgroundBlack {
+    background: #26a69a;
+}
+
+mz-nav-bar .mz-nav-bar {
+    background: yellow;
+  }

@@ -48,7 +48,7 @@
     <div class="col s10 m4 l3 push-s1" *ngFor="let carro of CarrosFavoritos">
       <div class="card gray-background">
         <div class="card-image">
-          <img src= "../../assets/cars.jpg"  height="200">
+          <img src= "{{complementPath}}{{carro.Image}}"  height="265">
           <button class="btn-floating halfway-fab waves-effect waves-light white" (click)="adicionar(carro)"><i *ngIf="carro.CarroFavorito" class="material-icons icon-red">favorite</i><i class="material-icons icon-red">favorite_border</i></button>
         </div>
         <div class="card-content">

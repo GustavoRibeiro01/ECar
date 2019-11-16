@@ -16,3 +16,7 @@
     margin-bottom: 30px;
     margin-left: -15px;
 }
+
+.gray-background{
+    background-color: rgb(240, 240, 240);
+}
