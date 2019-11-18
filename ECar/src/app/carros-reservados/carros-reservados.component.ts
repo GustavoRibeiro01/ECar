@@ -70,6 +70,16 @@ export class CarrosReservadosComponent implements OnInit {
   changeRouteFavoritos = () =>{
     this.route.navigateByUrl("menu/carrosFavoritos")
   }
+
+  changeRouteHome = () =>{
+    if(this.currentUser.Id == 5){
+      this.route.navigateByUrl("home/adm")
+    }
+    else{
+      this.route.navigateByUrl("home")
+    }
+    
+  }
   
   logout = () =>{
     this._authService.logout()

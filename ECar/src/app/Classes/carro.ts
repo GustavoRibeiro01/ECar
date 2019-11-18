@@ -8,6 +8,8 @@ export class Carro {
     public CarroFavorito: boolean
     public CarroReservado: number
     public Image: string
+    public DataReserva: string
+    public Situacao: string
 
     public ListaImages: ImageCarro[]
 

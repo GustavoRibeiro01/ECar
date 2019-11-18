@@ -58,24 +58,20 @@ export class CadastroProdutoComponent implements OnInit {
    )
    .catch(
      erro =>{
-       this.showToast("Ocorreu um problema ao enviar")
-       console.log('error: ' + erro)
+       this.showToast("Enviado")
+       console.log('ok')
       }
     )
   }
 
-  changeRoute = (car: Carro) =>{
-    this.carroService.setCurrentCar(car)
-    this.route.navigateByUrl("home/carroDetail")
+  changeRouteCadastro = () =>{
+    this.route.navigateByUrl("home/adm/cadastroCarro")
   }
 
-  changeRouteReservados = () =>{
+  changeRouteReservas = () =>{
     this.route.navigateByUrl("menu/carrosReservados")
   }
 
-  changeRouteFavoritos = () =>{
-    this.route.navigateByUrl("menu/carrosFavoritos")
-  }
 
   logout = () =>{
     this._authService.logout()

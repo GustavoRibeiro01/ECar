@@ -27,3 +27,74 @@ nav .nav-wrapper {
     height: 100%;
     background: #000;
 } 
+
+
+
+    /* label color */
+    .input-field label {
+        color: rgb(0, 0, 0);
+      }
+      /* label focus color */
+      .input-field input[type=text]:focus + label {
+        color: rgb(0, 0, 0);
+      }
+      /* label underline focus color */
+      .input-field input[type=text]:focus {
+        border-bottom: 1px solid rgb(0, 0, 0);
+        box-shadow: 0 1px 0 0 rgb(0, 0, 0);
+      }
+      /* valid color */
+      .input-field input[type=text].valid {
+        border-bottom: 1px solid #000;
+        box-shadow: 0 1px 0 0 #000;
+      }
+      /* invalid color */
+      .input-field input[type=text].invalid {
+        border-bottom: 1px solid rgb(0, 0, 0);
+        box-shadow: 0 1px 0 0 #000;
+      }
+      /* icon prefix focus color */
+      .input-field .prefix.active {
+        color: #000;
+      }
+  
+      .total {
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:11;
+        background-color:#1E1E1E;
+        width:100%;
+        height:100%;
+        filter: alpha(opacity=65);
+      }
+  
+       /* label focus color */
+       .input-field input[type=password]:focus + label {
+        color: rgb(0, 0, 0);
+      }
+      /* label underline focus color */
+      .input-field input[type=password]:focus {
+        border-bottom: 1px solid rgb(0, 0, 0);
+        box-shadow: 0 1px 0 0 rgb(0, 0, 0);
+      }
+      /* valid color */
+      .input-field input[type=password].valid {
+        border-bottom: 1px solid #000;
+        box-shadow: 0 1px 0 0 #000;
+      }
+
+      .input-field input[type=number]:focus + label {
+        color: rgb(0, 0, 0);
+      }
+      /* label underline focus color */
+      .input-field input[type=number]:focus {
+        border-bottom: 1px solid rgb(0, 0, 0);
+        box-shadow: 0 1px 0 0 rgb(0, 0, 0);
+      }
+      /* valid color */
+      .input-field input[type=number].valid {
+        border-bottom: 1px solid #000;
+        box-shadow: 0 1px 0 0 #000;
+      }
+  

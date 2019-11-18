@@ -6,7 +6,7 @@
                 </i></a></mz-navbar-item>
         </mz-navbar-item-container>
         <mz-navbar-item-container [align]="'center'">
-        <a routerLink="/home" class="brand-logo">Reserva Car's</a>
+        <a (click)="changeRouteHome()" class="brand-logo">Reserva Car's</a>
         </mz-navbar-item-container>
     </div>
 </mz-navbar>
@@ -30,20 +30,40 @@
 
     </div>
   </mz-sidenav-header>
+  <div *ngIf="currentUser.Id != 5">
+        <mz-sidenav-link>
+                <a (click)="changeRouteReservados()" class="waves-effect waves-black">Minhas Reservas <i class="material-icons">dehaze</i></a>
+        </mz-sidenav-link>
+        <mz-sidenav-divider></mz-sidenav-divider>
+        <mz-sidenav-link >
+                <a (click)="changeRouteFavoritos()" class="waves-effect waves-black">Carros Favoritos 
+                <i class="material-icons icon-red">favorite</i> </a>
+        </mz-sidenav-link>
+        <mz-sidenav-divider></mz-sidenav-divider>
+        <mz-sidenav-link>
+                <a (click)="logout()" class="waves-effect waves-black">Sair <i class="material-icons">power_settings_new</i></a>
+            </mz-sidenav-link>
+          <mz-sidenav-divider></mz-sidenav-divider>
+  </div>
+   
+  <div *ngIf="currentUser.Id == 5">
+        <mz-sidenav-link>
+            <a (click)="changeRouteCadastro()" class="waves-effect waves-black">Cadastro de Carros<i class="material-icons">dehaze</i></a>
+        </mz-sidenav-link>
+        <mz-sidenav-divider></mz-sidenav-divider>
+        <mz-sidenav-link >
+            <a (click)="changeRouteReservas()" class="waves-effect waves-black">Reservas
+                <i class="material-icons icon-red">favorite</i> </a>
+        </mz-sidenav-link>
+        <mz-sidenav-divider></mz-sidenav-divider>
+        <mz-sidenav-link>
+                <a (click)="logout()" class="waves-effect waves-black">Sair <i class="material-icons">power_settings_new</i></a>
+            </mz-sidenav-link>
+          <mz-sidenav-divider></mz-sidenav-divider>
+  </div>
   
-  <mz-sidenav-link>
-        <a (click)="changeRouteReservados()" class="waves-effect waves-red">Minhas Reservas <i class="material-icons">dehaze</i></a>
-  </mz-sidenav-link>
-  <mz-sidenav-divider></mz-sidenav-divider>
-  <mz-sidenav-link >
-        <a (click)="changeRouteFavoritos()" class="waves-effect waves-red">Carros Favoritos 
-          <i class="material-icons icon-red">favorite</i> </a>
-  </mz-sidenav-link>
-  <mz-sidenav-divider></mz-sidenav-divider>
-  <mz-sidenav-link>
-    <a (click)="logout()" class="waves-effect waves-red">Sair <i class="material-icons">power_settings_new</i></a>
-  </mz-sidenav-link>
-  <mz-sidenav-divider></mz-sidenav-divider>
+  
+
 </mz-sidenav>
 
 <div class="row">
@@ -56,12 +76,18 @@
                     </div>
                     <div class="col s7 m6 l6">
                         <h4>{{carro.Nome}}</h4>
-                        <p>Data da Reserva: <br>
-                            Status: 
+                        <p>Data da Reserva: {{carro.DataReserva}} <br>
+                            Status: {{carro.Situacao}}
                         </p>
+                        <a href="#!" class=" waves-effect waves-light btn black secondary-content1">Cancelar</a>
+                        <a href="#!" class=" waves-effect waves-light btn black secondary-content">Confirmar</a>
                     </div>
-                
+                <br>
+                <br>
+                <br>
             </li>
+            <br>
+            <br>
         </ul>
     </div>
 </div>

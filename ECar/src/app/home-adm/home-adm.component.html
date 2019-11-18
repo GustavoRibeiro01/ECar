@@ -32,16 +32,16 @@
       </mz-sidenav-header>
       
       <mz-sidenav-link>
-            <a (click)="changeRouteCadastro()" class="waves-effect waves-cyan">Cadastro de Carros<i class="material-icons">dehaze</i></a>
+            <a (click)="changeRouteCadastro()" class="waves-effect waves-black">Cadastro de Carros<i class="material-icons">dehaze</i></a>
       </mz-sidenav-link>
       <mz-sidenav-divider></mz-sidenav-divider>
       <mz-sidenav-link >
-            <a (click)="changeRouteReservas()" class="waves-effect">Reservas
+            <a (click)="changeRouteReservas()" class="waves-effect waves-black">Reservas
               <i class="material-icons icon-red">favorite</i> </a>
       </mz-sidenav-link>
       <mz-sidenav-divider></mz-sidenav-divider>
       <mz-sidenav-link>
-        <a href="" class="waves-effect">Sair <i class="material-icons">power_settings_new</i></a>
+        <a href="" class="waves-effect waves-black">Sair <i class="material-icons">power_settings_new</i></a>
       </mz-sidenav-link>
       <mz-sidenav-divider></mz-sidenav-divider>
     </mz-sidenav>
@@ -51,7 +51,7 @@
           <div class="card gray-background">
             <div class="card-image">
               <img src= "{{complementPath}}{{carro.Image}}"  height="265" (click)="changeRoute()">
-              <button class="btn-floating halfway-fab waves-effect waves-light white" (click)="removerCarro(carro.Id)"><i class="material-icons icon-red">delete</i></button>
+              <button class="btn-floating halfway-fab waves-effect waves-light white" (click)="removerCarro(carro)"><i class="material-icons icon-red">delete</i></button>
             </div>
             <div class="card-content" (click)="changeRoute()">
               <span class="card-title">{{carro.Nome}}</span>

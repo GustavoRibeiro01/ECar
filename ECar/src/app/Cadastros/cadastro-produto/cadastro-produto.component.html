@@ -31,11 +31,11 @@
     </mz-sidenav-header>
     
     <mz-sidenav-link>
-          <a (click)="changeRouteReservados()" class="waves-effect waves-black">Cadastro de Carros <i class="material-icons">dehaze</i></a>
+          <a (click)="changeRouteCadastro()" class="waves-effect waves-black">Cadastro de Carros <i class="material-icons">dehaze</i></a>
     </mz-sidenav-link>
     <mz-sidenav-divider></mz-sidenav-divider>
     <mz-sidenav-link >
-          <a (click)="changeRouteFavoritos()" class="waves-effect waves-black">Reservas 
+          <a (click)="changeRouteReservas()" class="waves-effect waves-black">Reservas 
             <i class="material-icons icon-red">favorite</i> </a>
     </mz-sidenav-link>
     <mz-sidenav-divider></mz-sidenav-divider>
@@ -55,19 +55,19 @@
             <div class="card-content">
               <br>
               <div class="input-field">
-                  <i class="material-icons prefix center">account_circle</i>
+                  <i class="material-icons prefix center">time_to_leave</i>
                   <input [(ngModel)]="car.Nome" placeholder="Entre com nome do veiculo"  id="nome" type="text">
                   <label for="nome" class="active">Nome</label>
               </div>
 
               <div class="input-field">
-                  <i class="material-icons prefix center">account_circle</i>
+                  <i class="material-icons prefix center">time_to_leave</i>
                   <input [(ngModel)]="car.Tipo" placeholder="Entre com tipo do veiculo"  id="tipo" type="text">
                   <label for="tipo" class="active">Tipo</label>
               </div>
 
               <div class="input-field">
-                  <i class="material-icons prefix center">mail_outline</i>
+                  <i class="material-icons prefix center">monetization_on</i>
                   <input [(ngModel)]="car.Preco" placeholder="Entre com seu email"  id="preco" type="number">
                   <label for="preco" class="active">Preço</label>
               </div>

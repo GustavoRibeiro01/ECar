@@ -17,3 +17,20 @@
     font-size: 2.1rem;
     padding: 0;
 }
+
+.secondary-content1 {
+    float: unset;
+    color: #bd0303;
+    margin-bottom: 12px;
+}
+
+.secondary-content {
+    float: right;
+    color: #00ac39;
+}
+
+img.responsive-img, video.responsive-video {
+    max-width: 100%;
+    height: auto;
+    margin-top: 12px;
+}

@@ -62,7 +62,7 @@ export class CarrosFavoritosComponent implements OnInit {
     this._carroService.carroFavorito({IdCarro: idCarro, IdUsuario: idUsuario, Value: value})
   }
 
-  changeRouteReservados = () =>{
+  changeRouteReservas = () =>{
     this.route.navigateByUrl("menu/carrosReservados")
   }
 

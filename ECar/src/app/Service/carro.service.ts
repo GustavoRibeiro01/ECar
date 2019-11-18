@@ -71,4 +71,13 @@ export class CarroService {
     });
   }
 
+  deletarCarro = (id) =>{
+    return new Promise((resolve, reject) => {
+
+      this.axios.delete(`${this.pathAPI}Carro/DeletarCarro?IdCarro=${id}`)
+          .then((response) => resolve(response.data))
+          .catch((error) => reject(error));
+    });
+  }
+
 }

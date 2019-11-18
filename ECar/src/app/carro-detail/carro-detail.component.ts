@@ -5,6 +5,7 @@ import { AutenticacaoService } from '../Service/autenticacao.service';
 import { Usuario } from '../Classes/usuario';
 import { Carro } from '../Classes/carro';
 import { UploadImageService } from '../Service/upload-image.service';
+import { MzToastModule, MzToastService } from 'ngx-materialize';
 
 @Component({
   selector: 'app-carro-detail',
@@ -23,7 +24,8 @@ export class CarroDetailComponent implements OnInit {
     private _carroService: CarroService,
     private _authService: AutenticacaoService,
     private _imageService: UploadImageService,
-    private route: Router
+    private route: Router,
+    private toast: MzToastService
 
   ) { 
     this.currentUser = this._authService.getCurrentUser()
@@ -74,10 +76,11 @@ export class CarroDetailComponent implements OnInit {
           {
             this.currentCar.CarroReservado = this.currentUser.Id
             this.route.navigateByUrl("/home")
+            this.showToast("Reservado!")
           }
           else
           {
-            alert("Não foi possivel realizar a reserva!")
+            this.showToast("Não foi possivel realizar a reserva!")
             this.route.navigateByUrl("/home")
           }
         }
@@ -158,10 +161,20 @@ export class CarroDetailComponent implements OnInit {
   changeRouteFavoritos = () =>{
     this.route.navigateByUrl("menu/carrosFavoritos")
   }
+
+  changeRouteReservados = () =>{
+    this.route.navigateByUrl("menu/carrosReservados")
+  }
   
   logout = () =>{
     this._authService.logout()
     this.route.navigateByUrl("/autenticacao/login")
+  }
+
+  showToast(text: string){
+
+    this.toast.show(text, 4000, 'black')
+
   }
 
 }
