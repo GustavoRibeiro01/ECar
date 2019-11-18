@@ -20,3 +20,9 @@
 .gray-background{
     background-color: rgb(240, 240, 240);
 }
+
+nav .nav-wrapper {
+    position: relative;
+    height: 100%;
+    background: #000;
+} 

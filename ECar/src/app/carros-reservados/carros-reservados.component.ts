@@ -4,6 +4,7 @@ import { AutenticacaoService } from '../Service/autenticacao.service';
 import { Router } from '@angular/router';
 import { Usuario } from '../Classes/usuario';
 import { Carro } from '../Classes/carro';
+import { UploadImageService } from '../Service/upload-image.service';
 
 @Component({
   selector: 'app-carros-reservados',
@@ -14,10 +15,12 @@ export class CarrosReservadosComponent implements OnInit {
 
   currentUser: Usuario
   carrosReservados: Carro[]
+  complementPath
 
   constructor(
     private _carroService: CarroService,
     private _authService: AutenticacaoService,
+    private _ImageService: UploadImageService,
     private route: Router
   ) {
     this.currentUser = this._authService.getCurrentUser()
@@ -39,11 +42,20 @@ export class CarrosReservadosComponent implements OnInit {
     }
     else{
 
+      this.complementPath = this._ImageService.getPathComplement()
       this.carrosReservados = this._carroService.getCurrentCars()
 
       if(this.carrosReservados != null)
       {
-        this.carrosReservados = this._carroService.getCurrentCars().filter(car => car.CarroReservado == this.currentUser.Id)
+        if(this.currentUser.Id == 5)
+        {
+          this.carrosReservados = this._carroService.getCurrentCars().filter(car => car.CarroReservado > 0)
+        }
+        else
+        {
+          this.carrosReservados = this._carroService.getCurrentCars().filter(car => car.CarroReservado == this.currentUser.Id)
+        }
+        
       }
 
     }

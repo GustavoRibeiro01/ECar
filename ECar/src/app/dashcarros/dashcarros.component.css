@@ -22,6 +22,8 @@
     background: #26a69a;
 }
 
-mz-nav-bar .mz-nav-bar {
-    background: yellow;
-  }
+nav .nav-wrapper {
+    position: relative;
+    height: 100%;
+    background: #000;
+} 

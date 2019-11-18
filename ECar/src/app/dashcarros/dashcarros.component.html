@@ -1,5 +1,6 @@
   
-<mz-navbar class="backgroundBlack">
+<mz-navbar >
+  <div class="nav-wrapper black darken-1">
     <mz-navbar-item-container [align]="'left'" class="backgroundBlack">
         <mz-navbar-item class="backgroundBlack"><a id="btn-sidenav-demo" ><i class="material-icons">menu
             </i></a></mz-navbar-item>
@@ -7,6 +8,7 @@
     <mz-navbar-item-container class="backgroundBlack" [align]="'center'">
       <a routerLink="/home" class="brand-logo">Reserva Car's</a>
     </mz-navbar-item-container>
+  </div>
 </mz-navbar>
    
 <mz-sidenav
@@ -30,16 +32,16 @@
   </mz-sidenav-header>
   
   <mz-sidenav-link>
-        <a (click)="changeRouteReservados()" class="waves-effect waves-red">Minhas Reservas <i class="material-icons">dehaze</i></a>
+        <a (click)="changeRouteReservados()" class="waves-effect waves-black">Minhas Reservas <i class="material-icons">dehaze</i></a>
   </mz-sidenav-link>
   <mz-sidenav-divider></mz-sidenav-divider>
   <mz-sidenav-link >
-        <a (click)="changeRouteFavoritos()" class="waves-effect waves-red">Carros Favoritos 
+        <a (click)="changeRouteFavoritos()" class="waves-effect waves-black">Carros Favoritos 
           <i class="material-icons icon-red">favorite</i> </a>
   </mz-sidenav-link>
   <mz-sidenav-divider></mz-sidenav-divider>
   <mz-sidenav-link>
-    <a (click)="logout()" class="waves-effect waves-red">Sair <i class="material-icons">power_settings_new</i></a>
+    <a (click)="logout()" class="waves-effect waves-black">Sair <i class="material-icons">power_settings_new</i></a>
   </mz-sidenav-link>
   <mz-sidenav-divider></mz-sidenav-divider>
 </mz-sidenav>

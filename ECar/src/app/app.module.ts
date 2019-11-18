@@ -16,6 +16,7 @@ import { OwlModule } from 'ngx-owl-carousel';
 import { MzCheckboxModule } from 'ngx-materialize';
 import { MzNavbarModule } from 'ngx-materialize'
 import { MzSidenavModule } from 'ngx-materialize'
+import { MzToastModule } from 'ngx-materialize';
 
 import { DashcarrosComponent } from './dashcarros/dashcarros.component';
 import { CarroDetailComponent } from './carro-detail/carro-detail.component';
@@ -46,6 +47,7 @@ import { CadastroProdutoComponent } from './Cadastros/cadastro-produto/cadastro-
     MzCheckboxModule,
     MzNavbarModule,
     MzSidenavModule,
+    MzToastModule,
     OwlModule,
     FormsModule
   ],

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/Classes/usuario';
 import { AutenticacaoService } from 'src/app/Service/autenticacao.service';
 import { Router } from '@angular/router';
+import { MzToastModule, MzToastService } from 'ngx-materialize';
 
 @Component({
   selector: 'app-cadastro-usuario',
@@ -13,7 +14,8 @@ export class CadastroUsuarioComponent implements OnInit {
   user = new Usuario('','','','')
   constructor(
     private _authService: AutenticacaoService,
-    private route: Router
+    private route: Router,
+    private toast: MzToastService
   ) { }
 
   ngOnInit() {
@@ -27,10 +29,12 @@ export class CadastroUsuarioComponent implements OnInit {
 
           if(response != null)
           {
+            this.showToast("Salvo")
             this.route.navigateByUrl("/autenticacao/login")
+           
           }
           else{
-            alert("Não foi possivel realizar o cadastro!")
+            this.showToast("Não foi possivel realizar o cadastro!")
           }
         }
       )
@@ -42,6 +46,12 @@ export class CadastroUsuarioComponent implements OnInit {
         
       )
     this.user = new Usuario('','','','')
+  }
+
+  showToast(text: string){
+
+    this.toast.show(text, 4000, 'black')
+
   }
 
 }

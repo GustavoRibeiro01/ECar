@@ -1,13 +1,15 @@
   
 <mz-navbar>
-        <mz-navbar-item-container [align]="'left'">
-            <mz-navbar-item><a id="btn-sidenav-demo" ><i class="material-icons">menu
-                </i></a></mz-navbar-item>
-        </mz-navbar-item-container>
-        <mz-navbar-item-container [align]="'center'">
-          <a routerLink="/home/adm" class="brand-logo">Reserva Car's</a>
-        </mz-navbar-item-container>
-    </mz-navbar>
+  <div class="nav-wrapper black darken-1">
+      <mz-navbar-item-container [align]="'left'">
+          <mz-navbar-item><a id="btn-sidenav-demo" ><i class="material-icons">menu
+              </i></a></mz-navbar-item>
+      </mz-navbar-item-container>
+      <mz-navbar-item-container [align]="'center'">
+        <a routerLink="/home/adm" class="brand-logo">Reserva Car's</a>
+      </mz-navbar-item-container>
+  </div>
+</mz-navbar>
        
     <mz-sidenav
       [id]="'sidenav-demo'"
@@ -30,11 +32,11 @@
       </mz-sidenav-header>
       
       <mz-sidenav-link>
-            <a href="#" class="waves-effect waves-cyan">Cadastro de Carros<i class="material-icons">dehaze</i></a>
+            <a (click)="changeRouteCadastro()" class="waves-effect waves-cyan">Cadastro de Carros<i class="material-icons">dehaze</i></a>
       </mz-sidenav-link>
       <mz-sidenav-divider></mz-sidenav-divider>
       <mz-sidenav-link >
-            <a href="#" class="waves-effect">Reservas
+            <a (click)="changeRouteReservas()" class="waves-effect">Reservas
               <i class="material-icons icon-red">favorite</i> </a>
       </mz-sidenav-link>
       <mz-sidenav-divider></mz-sidenav-divider>
@@ -48,7 +50,7 @@
         <div class="col s10 m4 l3 push-s1" *ngFor="let carro of ListaCarros">
           <div class="card gray-background">
             <div class="card-image">
-              <img src= "../../assets/cars.jpg"  height="200" (click)="changeRoute()">
+              <img src= "{{complementPath}}{{carro.Image}}"  height="265" (click)="changeRoute()">
               <button class="btn-floating halfway-fab waves-effect waves-light white" (click)="removerCarro(carro.Id)"><i class="material-icons icon-red">delete</i></button>
             </div>
             <div class="card-content" (click)="changeRoute()">

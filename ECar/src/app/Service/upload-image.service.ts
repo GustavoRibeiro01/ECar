@@ -11,16 +11,17 @@ export class UploadImageService {
 
   constructor() { }
 
-  postFile = (caption: string, fileToUpload: File): Promise<any> => {
+  postFile = (IdCarro, fileToUpload: File): Promise<any> => {
     
     const formData: FormData = new FormData();
     formData.append('Image', fileToUpload, fileToUpload.name);
-    formData.append('ImageCaption', caption);
+    formData.append('IdCarro', IdCarro);
 
     return new Promise((resolve, reject) => {
       this.axios.post(`${this.pathAPI}Carro/UploadImage`, formData)
         .then(
           response =>{
+            console.log(response)
             resolve(response)
           }
         )

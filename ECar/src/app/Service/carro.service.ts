@@ -54,10 +54,18 @@ export class CarroService {
 
   reservarCarro = (obj: any) =>{
     
-    console.log(obj)
     return new Promise((resolve, reject) => {
 
       this.axios.post(`${this.pathAPI}Carro/ReservarCarro`, obj)
+          .then((response) => resolve(response.data))
+          .catch((error) => reject(error));
+    });
+  }
+
+  salvarCarro = (car) =>{
+    return new Promise((resolve, reject) => {
+
+      this.axios.post(`${this.pathAPI}Carro/GravarCarro`, car)
           .then((response) => resolve(response.data))
           .catch((error) => reject(error));
     });

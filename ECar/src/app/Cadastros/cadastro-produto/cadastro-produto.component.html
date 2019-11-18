@@ -1,22 +1,115 @@
+<mz-navbar >
+    <div class="nav-wrapper black darken-1">
+      <mz-navbar-item-container [align]="'left'" class="backgroundBlack">
+          <mz-navbar-item class="backgroundBlack"><a id="btn-sidenav-demo" ><i class="material-icons">menu
+              </i></a></mz-navbar-item>
+      </mz-navbar-item-container>
+      <mz-navbar-item-container class="backgroundBlack" [align]="'center'">
+        <a routerLink="/home/adm" class="brand-logo">Reserva Car's</a>
+      </mz-navbar-item-container>
+    </div>
+  </mz-navbar>
+     
+  <mz-sidenav
+    [id]="'sidenav-demo'"
+    [collapseButtonId]="'btn-sidenav-demo'">
+    <mz-sidenav-header>
+      <div _ngcontent-c1="" [ngStyle]="{'background' : 'url(../../assets/cars.jpg)'}" class="sidenav-header">
+                 
+          <div _ngcontent-c5="" class="user-view ng-tns-c5-43">
+                  
+              <div _ngcontent-c5="" class="red-text name">
+                  <h4>
+                      Reserva Car's
+                  </h4>
+              </div>
+              <div _ngcontent-c5="" class="white-text name">Administrador</div>
+              <div _ngcontent-c5="" class="white-text email"></div>
+          </div>
+  
+      </div>
+    </mz-sidenav-header>
+    
+    <mz-sidenav-link>
+          <a (click)="changeRouteReservados()" class="waves-effect waves-black">Cadastro de Carros <i class="material-icons">dehaze</i></a>
+    </mz-sidenav-link>
+    <mz-sidenav-divider></mz-sidenav-divider>
+    <mz-sidenav-link >
+          <a (click)="changeRouteFavoritos()" class="waves-effect waves-black">Reservas 
+            <i class="material-icons icon-red">favorite</i> </a>
+    </mz-sidenav-link>
+    <mz-sidenav-divider></mz-sidenav-divider>
+    <mz-sidenav-link>
+      <a (click)="logout()" class="waves-effect waves-black">Sair <i class="material-icons">power_settings_new</i></a>
+    </mz-sidenav-link>
+    <mz-sidenav-divider></mz-sidenav-divider>
+  </mz-sidenav>
 
-<div class="container">
-    <div class="row">
-      <div class="col s8 offset-2">
-        <div class="card-panel teal lighten-2">
-          <h4 class="center white-text">Image Library</h4>
-        </div>
-        <form #imageForm=ngForm (ngSubmit)="OnSubmit(Caption,Image)">
-          <div class="row">
-            <div class="input-field col s12">
-              <input type="text" #Caption ngModel name="Caption" id="Caption" required>
-              <label for="Caption">Caption</label>
+
+
+<div class="row">
+  <div class="col s10 m10 l10 push-s1 push-m1 push-l1">
+    <div class="col s12 m6 l6">
+        <div class="card gray-background">
+             
+            <div class="card-content">
+              <br>
+              <div class="input-field">
+                  <i class="material-icons prefix center">account_circle</i>
+                  <input [(ngModel)]="car.Nome" placeholder="Entre com nome do veiculo"  id="nome" type="text">
+                  <label for="nome" class="active">Nome</label>
+              </div>
+
+              <div class="input-field">
+                  <i class="material-icons prefix center">account_circle</i>
+                  <input [(ngModel)]="car.Tipo" placeholder="Entre com tipo do veiculo"  id="tipo" type="text">
+                  <label for="tipo" class="active">Tipo</label>
+              </div>
+
+              <div class="input-field">
+                  <i class="material-icons prefix center">mail_outline</i>
+                  <input [(ngModel)]="car.Preco" placeholder="Entre com seu email"  id="preco" type="number">
+                  <label for="preco" class="active">Preço</label>
+              </div>
+    
+            </div>
+            <div>
+              <br>
+              <div class="center-align">
+                <button class="waves-effect waves-light btn black" (click)="salvarCarro()">Cadastrar</button>
+                <br>
+                <br>
+                <a style="color:rgb(0, 0, 0)" routerLink="/home/adm">Cancelar</a>
+                <br>
+                <br>
+                <br>
+              </div>
             </div>
           </div>
-          <img [src]="imageUrl"  style="width:250px;height:200px">
-          <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
-          <button type="submit" class="btn-large btn-submit" [disabled]="Image.value=='' || !imageForm.valid">Submit</button>
-        </form>
+    </div>
+    <div class="col s12 m6 l6">
+      <div class="card gray-background">
+        <div class="card-content">
+          <div class="row">
+            <form #imageForm=ngForm (ngSubmit)="OnSubmit(Caption,Image)">
+              <div class="row">
+                <div class="input-field col s12 m12 l12 push-m2 push-l1">
+                  <img [src]="imageUrl"  style="width:350px;height:258px">
+                  <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="input-field col s12 m12 l12 push-s4 push-m4 push-l4">
+                    <button type="submit" class="btn-large btn-submit black" [disabled]="(Image.value=='' || !imageForm.valid)">Enviar</button>
+                </div>
+              </div>
+            </form>  
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
+
 

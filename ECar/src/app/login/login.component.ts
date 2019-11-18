@@ -3,6 +3,7 @@ import { MzButtonModule } from 'ngx-materialize'
 import { Usuario } from '../Classes/usuario';
 import { AutenticacaoService } from '../Service/autenticacao.service';
 import { Router } from '@angular/router';
+import { MzToastModule, MzToastService } from 'ngx-materialize';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private _authService: AutenticacaoService,
-    private route: Router
+    private route: Router,
+    private toast: MzToastService
   ) { }
 
   ngOnInit() {
@@ -31,23 +33,31 @@ export class LoginComponent implements OnInit {
             if((response as Usuario).Administrador)
             {
               this.route.navigateByUrl("/home/adm")
+              this.showToast(`Bem Vindo ${(response).Nome}!`)
             }
             else
             {
               this.route.navigateByUrl("/home")
+              this.showToast(`Bem Vindo ${(response).Nome}!`)
             }
             
           }
           else{
-            alert("Login e senha incompativeis")
+            this.showToast("Login e senha incompativeis")
           }
         }
       )
       .catch(
         erro =>{
-          alert("Não foi possiel comunicar com API")
+          this.showToast("Não foi possiel comunicar com API")
           console.log(erro)
         }
       )
+  }
+
+  showToast(text: string){
+
+    this.toast.show(text, 4000, 'black')
+
   }
 }
